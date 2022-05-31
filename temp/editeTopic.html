@@ -1,0 +1,62 @@
+{{define "editeTopic"}}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/editeTopic.css">
+    <title>LibexForum</title>
+</head>
+
+<body>
+    <div>
+        <div id="content-one">
+            <form action="/upTopic">
+                <div id="step-one">
+                    <div class="block-left">
+                        <p>Creation de topic :</p>
+                        <div id="form-one">
+                            <label for="pseudo">Nom du topic :</label>
+                            <input type="text" name="topic_titre" id="pseudo" value="{{.TopicInfo.Title}}">
+                            <label for="name">Sujet :</label>
+                            <input type="text" name="topic_sujet" id="pseudo" value="{{.TopicInfo.Subjet}}">
+                            <label>Categorie du topic</label>
+                            <div id="radio-one">
+                                {{range .CreateTopic.Category}}
+                                <div>
+                                    <input type="checkbox" class="cate" id="cate_{{.Id}}" name="topic_category" value="{{.Id}}">
+                                    <label for="cate_{{.Id}}" class="side-label">{{.Category}}</label>
+                                </div>
+                                {{end}}
+                            </div>
+                            <label for="description">Description :</label>
+                            <textarea id="description" rows="5" cols="64" name="topic_description">{{.TopicInfo.Description}}</textarea>
+
+                        </div>
+                    </div>
+                    
+                    <div class="center"></div>
+
+                    <div class="block-right">
+                        <input type="text" name="topic" value="{{.TopicInfo.Id}}" style="display: none;">
+                        <p>Image du topic :</p>
+                        <div id="radio-tow">
+                            {{range .CreateTopic.TopicImage}}
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_{{.Id}}" name="topic_picture" value="{{.Id}}">
+                                <label for="badge_{{.Id}}" class="side-label"><img src="{{.Path}}" alt=""></label>
+                            </div>
+                            {{end}}
+                        </div>
+                        <button type="submit">Valider !</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</body>
+{{end}}

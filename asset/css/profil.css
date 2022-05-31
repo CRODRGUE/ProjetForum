@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,500;1,700&display=swap');
+
+:root {
+    --color-main: #f5deb3;
+    --color-second: #000;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/bibliothèque.jpg');  
+}
+
+body>div{
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: rgba(0,0,0,0.8);
+    color: #FFF;
+    font-family: 'Montserrat', 'Times New Roman', Times, serif;
+}
+
+#menu{
+    width: 80vw;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #FFF solid 1px;
+}
+
+#menu-btn{
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 15px;
+    text-decoration: none;
+    
+}#menu-btn>a{
+    margin-right: 10px;
+    color: #FFF;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 2s ease-out;
+}#menu-btn>a:hover{
+    color: #f5deb3;
+    font-weight: 700;
+}
+
+#menu-logo{
+    width: 10vw;
+    height: 7vh;
+    align-self: center;
+}
+
+#menu-profil{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+}#menu-profil>img{
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    border-radius: 50%;
+}
+
+#content-one{
+    width: 90vw;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+    padding: 2.5vh 5px;
+    margin-top: 5vh;
+    margin-bottom: 2.5vh;
+    /* background-color: #f5deb3; */
+    color: black;
+}
+
+#block-profil{
+    width: 30vw;
+    min-height: 90vh;
+    height: auto;
+    padding: 15px 0;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    padding: 2.5vh 1.5vw;
+    color: #f5deb3;
+    background-color: #000;
+}#block-profil>p{
+    font-size: 15px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+#profil-top{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 2.5vh;
+}#profil-top>img{
+    width: 100px;
+    height: 100px;
+    border: 50%;
+    margin-right: 1.5vw;
+}#profil-top>div :nth-child(1){
+    font-size: 30px;
+    font-weight: 700;
+}#profil-top>div :nth-child(2), #profil-top>div :nth-child(3){
+    font-size: 20px;
+    font-weight: 200;
+}#edite{
+    position: absolute;
+    top: 16vh;
+    right: 62vw;
+    cursor: pointer;
+}#edite>img{
+    width: 20px;
+    height: 20px;
+}
+
+#profil-tag>div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+}#profil-tag>div>img{
+    width: 60px;
+    height: 60px;
+}
+
+
+#block-topic{
+    width: 50vw;
+    height: auto;
+    min-height: 90vh;
+    padding: 15px 0;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+}.nav-body>p{
+    align-self: flex-start;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #f5deb3;
+}#block-topic>div{
+    width: 90%;
+}
+
+.nav{
+    height: 40px;
+    width: auto;
+    position: absolute;
+    top: -35px;
+    left: 30px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}.nav>div{
+    height: 80%;
+    margin-left: 5px;
+    padding: 0px 10px;
+    border-radius: 15px 15px 0 0;
+    border: 1px solid #000;
+    display:  flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f5deb3;
+}.active-onglet{
+    background-color: #000 !important;
+    color: #f5deb3 !important;
+}
+
+#btn-nav{
+    margin: 2.5vh 0vh;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    color: #000;
+}#btn-nav>p{
+    width:fit-content;
+    height: min-content;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: #f5deb3;
+}
+
+
+/* ----------------- Mes Topics ------------------------------- */
+.topic{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: solid 1px #000;
+    border-radius: 5px;
+    background-color: var(--color-main);
+    color: var(--color-second);
+}
+.topic>div{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}.topic>div>img{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    margin: 0px 15px;
+    background-color: var(--color-main);
+}
+
+.topic>div>div :nth-child(1){
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+}.topic>div>div :nth-child(2){
+    font-size: 10px;
+}
+
+.topic-info>div{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}.topic-info>a,.like-option>a{
+    width: min-content;
+    height: min-content;
+    margin-right: 15px;
+    border-radius: 15px;
+    padding: 5px;
+    color: var(--color-second);
+    background-color: var(--color-main);
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 1s ease-out;
+
+}.topic-info>a:hover,.like-option>a:hover{
+    background-color: var(--color-second);
+    color: var(--color-main);
+
+}
+
+/* ---------------------Mes Likes/ Mes Messages -------------------------------- */
+
+.sub-like{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: solid 1px #000;
+    border-radius: 5px;
+    background-color: var(--color-main);
+    color: var(--color-second);
+}
+
+.sub-like .like-info{
+    width: 70%;
+    margin-right: 15px;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+
+}.like-option{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.sub-like>div>p{
+    font-size: 20px;
+    color: #000; 
+}.sub-like>div>.message-like{
+    margin-left: 5px;
+}.message-like :nth-child(n){
+    font-size: 15px;
+    color: #000;
+}.message-like :nth-child(2){
+    margin-left: 15px;
+}
+
+.MessageEmpty{
+    font-size: 25px;
+    color: var(--color-main);
+    text-align: center;
+    margin: auto, 0;
+}
+
+.nav-body{
+    display: none;
+}.active-sub{
+    display: block;
+}
+
+

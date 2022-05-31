@@ -1,0 +1,97 @@
+{{define "register"}}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/74fed0e2b5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./static/css/register.css">
+    <script type="text/javascript" href="./static/js/test.js"></script>
+    <title>LibexForum</title>
+</head>
+
+<body>
+    <div>
+        <div id="content-one">
+            <form action="/res">
+
+                <div class="step active-step">
+                    <div class="block-left">
+                        <p>Modification du profil</p>
+                        <div id="form-one">
+                            <label for="pseudo">Pseudo :</label>
+                            <input type="text" name="user_pseudo" id="pseudo">
+                            <label for="name">Prenom :</label>
+                            <input type="text" name="user_firstname" id="name">
+                            <label for="lastname">Nom :</label>
+                            <input type="text" name="user_lastname" id="lastname">
+                            <label for="date">Date d'anniverssaire :</label>
+                            <input type="date" name="user_date" id="date">
+                            <label for="description">Description :</label>
+                            <textarea id="user_description" rows="5" cols="64" name="user_description"></textarea>
+
+                        </div>
+                    </div>
+
+                    <div class="center"></div>
+
+                    <div class="block-right">
+                        <p>Image de profile :</p>
+                        <div id="form-tow">
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_1" name="badge" value="1">
+                                <label for="badge_1" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_2" name="badge" value="2">
+                                <label for="badge_2" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_3" name="badge" value="3">
+                                <label for="badge_3" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_4" name="badge" value="4">
+                                <label for="badge_4" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_5" name="badge" value="5">
+                                <label for="badge_5" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                        </div>
+                        <p class="next btn" style="text-align: center;">Suivant</p>
+                    </div>
+                </div>
+
+                <div class="step">
+
+                    <div class="block-left">
+                        <p>Modification du profil</p>
+                        <div id="form-one">
+                            <label for="pseudo">Email :</label>
+                            <input type="text" name="user_email" id="pseudo">
+                            <label for="name">Mot de passe :</label>
+                            <input type="password" name="user_password" id="pseudo">
+                            <p class="prev btn" style="text-align: center;">Retour</p>
+                            <button type="submit" onclick="test()">Valider !</button>
+                        </div>
+                    </div>
+
+                    <div class="center"></div>
+
+                    <div class="block-right" style="text-align: center;">
+                        <p>Une petite citation</p>
+                        <p>Ceux qui ont beaucoup à espérer et rien à perdre seront toujours dangereux.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="./static/js/test.js"></script>  
+    <script type="text/javascript" src="/static/js/switch.js"></script>  
+</body>
+
+</html>
+{{end}}

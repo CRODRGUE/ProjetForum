@@ -1,0 +1,137 @@
+{{define "profil"}}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/profil.css">
+    <title>LibexForum</title>
+</head>
+
+<body>
+    <div>
+        <div id="menu">
+            <div id="menu-btn">
+                <a href="/accueil">Accueil</a>
+                <a href="/accueil">Categories</a>
+                <a href="/lastTopic?page=0">Topic</a>
+                <a href="/createTopic">New Topic</a>
+            </div>
+            <img id="menu-logo" src="/static/img/Logo.png" alt="Logo du forum !">
+            <a href="/logout" style="text-decoration: none; color:#fff;">
+                <div id="menu-profil">
+                    <p>déconnexion</p>
+                </div>
+            </a>
+        </div>
+
+        <div id="content-one">
+            <div id="block-profil">
+                <div id="profil-top">
+                    <a id="edite" href="/profil/edite/{{.UserInfo.Id}}"><img src="/static/img/edition.png" alt="btn d'edition du profil"></a>
+                    <img src="/static/img/profile.png" alt="">
+                    <div>
+                        <p>{{.UserInfo.Pseudo}}</p>
+                        <p>{{.UserInfo.FirstName}}</p>
+                        <p>{{.UserInfo.LastName}}</p>
+                    </div>
+                </div>
+                <p>{{.UserInfo.Description}}</p>
+                <div id="profil-tag">
+                    <p>Mes Badges :</p>
+                    <div>
+                        <img src="/static/img/badge actif.png" alt="">
+                        <img src="/static/img/badge traducteur.png" alt="">
+
+                    </div>
+                </div>
+            </div>
+            {{$Id_user := .Id}}
+            <div id="block-topic">
+                <div class="nav">
+                    <div class="btn-nav active-onglet"><p>Mes Topics</p></div>
+                    <div class="btn-nav"><p>Mes Posts</p></div>
+                    <div class="btn-nav"><p>Mes Likes</p></div>
+                </div>
+
+                <div class="nav-body active-sub">
+                    <p>Mes topics </p>
+                    <div >
+                        {{if not .Topics}} 
+                        <p class="MessageEmpty">Tu n'as posté de topics !</p>
+                        {{else}}
+                        {{range .Topics}}
+                        <div class="topic">
+                            <div>
+                                <img src="{{.Picture}}" alt="">
+                                <div>
+                                    <a href="/topic?topic={{.Id}}&page=0">{{.Title}}</a>
+                                    <p>{{.Subjet}}</p>
+                                </div>
+                            </div>
+                            <div class="topic-info">
+                                <a href="/upTopic?id={{.Id}}">Modifier</a>
+                                <a href="/delTopic?q={{.Id_user}}&id={{.Id}}">Supprimer</a>
+                            </div>
+                        </div>
+                        {{end}}
+                        {{end}}
+                    </div>
+                </div>
+
+                <div class="nav-body">
+                    <p>Mes Posts</p>
+                    {{if not .Messages}} 
+                    <p class="MessageEmpty">Tu n'as pas posté de messages !</p>
+                    {{else}}
+                    {{range .Messages}}
+                    <div class="sub-like">
+                        <div class="like-info">
+                            <p>{{.Tiltle}}</p>
+                            <div class="message-like">
+                                <p>{{.Pseudo}}</p>
+                                <p>{{.Message}}</p>
+                            </div>
+                        </div>
+                        <div class="like-option">
+                            <a href="/topic?topic={{.Id_Topic}}&page=0">Consulter</a>
+                            <a href="/delMess?q={{.Id_user_message}}&id={{.Id_message}}">Supprimer</a>
+                        </div>
+                    </div>
+                    {{end}}
+                    {{end}}
+
+                </div>
+
+                <div class="nav-body">
+                    <p>Mes Like</p>
+                    {{if not .Likes}} 
+                    <p class="MessageEmpty">Tu n'as pas messages likes !</p>
+                    {{else}}
+                    {{range .Likes}}
+                    <div class="sub-like">
+                        <div class="like-info">
+                            <p>{{.Tiltle}}</p>
+                            <div class="message-like">
+                                <p>{{.Pseudo}}</p>
+                                <p>{{.Message}}</p>
+                            </div>
+                        </div>
+                        <div class="like-option">
+                            <a href="/topic?topic={{.Id_Topic}}&page=0">Consulter</a>
+                            <a href="/like?m={{.Id_message}}&u={{$Id_user}}&t={{.Id_Topic}}">Supprimer</a>
+                        </div>
+                    </div>
+                    {{end}}
+                    {{end}}
+                </div>
+                
+               
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/profil.js"></script> 
+</body>
+{{end}}

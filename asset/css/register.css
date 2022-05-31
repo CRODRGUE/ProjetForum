@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,700;1,100;1,200;1,300;1,500;1,700&display=swap');
+
+:root {
+    --color-main: #f5deb3;
+    --color-second: #000;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/bibliothèque.jpg");  
+}
+
+body>div{
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.8);
+    color: #FFF;
+    font-family: 'Montserrat', 'Times New Roman', Times, serif;
+}
+
+#content-one{
+    width: 90vw;
+    height: auto;
+    border-radius: 30px;
+    padding: 2.5vh 5px;
+    margin-top: 5vh;
+    background-color: #FFF;
+    color: #000;
+}#content-one>form{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}#content-one>form :nth-child(n){
+    margin-top: 1.5vh;
+}
+
+.block-left{
+    width: 40vw;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}.block-left>div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+}
+
+input{
+    border: none;
+    padding: 2px 3px;
+    border-radius: 15px;
+    border: solid 1px gray;
+    box-shadow: 0px 0px 8px rgb(255 255 255 / 80%), 0px 0px 8px rgb(255 255 255 / 80%);  
+}
+
+input:focus,textarea:focus{
+    padding: 0px 3px;
+    border: 2px solid #000;
+    background-color: #000;
+    color: #f5deb3;
+}
+
+textarea{
+    border: none;
+    resize: none;
+    width: 35vw;
+    min-height: 20vh;
+    max-height: 50vh;
+    height: auto;
+    border-radius: 15px;
+    border: solid 1px gray;
+    box-shadow: 0px 0px 8px rgb(255 255 255 / 80%), 0px 0px 8px rgb(255 255 255 / 80%);
+}
+
+form>label,form>button{
+    margin-top: 15px;
+}
+
+
+
+.center{
+    width: 0.5vw;
+    height: 50vh;
+    background-color: #000;
+}
+
+
+.block-right{
+    width: 40vw;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#form-tow{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}#form-tow>div{
+    display: flex;
+    align-items: center;
+}#form-tow>div>label>img{
+    width: 100px;
+    height: 100px;
+}
+
+button,.btn{
+    width: 20vw;
+    height: auto;
+    padding: 5px;
+    background-color: rgb(245, 222, 179);
+    color: #000;
+    border:  none;
+    border-radius: 15px;
+    margin: 1.5vh 0;
+}
+
+
+input[type="checkbox"]{
+    position: absolute;
+    left: -9999px;
+}
+  
+.side-label {
+    display: block;
+    position: relative;
+    margin: 10px 0;
+    padding-left: 35px;
+    cursor: pointer;
+}
+  
+.side-label::before, .side-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+  
+.side-label::before {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #000; 
+    border-radius: 50%; 
+}
+  
+input:focus + .side-label::before {
+    border-color: #000;
+}
+  
+.side-label::after {
+    display: none;
+    width: 8px;
+    height: 8px;
+    margin: 3px;
+    border-radius: 50%;
+    background-color: #000;
+}
+  
+input:checked + .side-label::after {
+    display: block;
+}
+
+.step{
+    display: none;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}.active-step{
+    display: flex;
+}

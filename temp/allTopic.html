@@ -1,0 +1,70 @@
+{{define "allTopic"}}
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/category.css">
+    <title>LibexForum</title>
+</head>
+
+<body>
+    <div>
+        <div id="menu">
+            <div id="menu-btn">
+                <a href="/accueil">Accueil</a>
+                <a href="/accueil">Categories</a>
+                <a href="/lastTopic?page=0">Topic</a>
+                <a href="/createTopic">New Topic</a>
+            </div>
+            <img id="menu-logo" src="/static/img/Logo.png" alt="Logo du forum !">
+            <a href="/profil/{{.Id_ses}}" style="text-decoration: none; color:#fff;">
+                <div id="menu-profil">
+
+                    <img src="/static/img/profile.png" alt="image de profil de l'utilisateur">
+                </div>
+            </a>
+        </div>
+
+    <div id="content-one">
+       
+        <div id="block-categories">
+            <p>{{.Category}}</p>
+            {{if not .DataTopic}}
+                <p style="color: #f5deb3; align-self: center;">Il y pas de topics recents !</p>
+            {{else}}
+            {{range .DataTopic}}
+            <div class="topic">
+                <div>
+                    <img src="{{.Picture}}" alt="">
+                    <div>
+                        <p>{{.Title}}</p>
+                        <p>{{.Subjet}}</p>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <div>
+                        <p>Date de création :</p>
+                        <p>{{.Start_date}}</p>
+                    </div>
+                    <div>
+                        <p>Nombre de message :</p>
+                        <p>{{.NbrMessage}}</p>
+                    </div>
+                </div>
+                <a href="/topic?topic={{.Id}}&page=0">Explorer</a>
+            </div>
+            {{end}}
+            {{end}}
+        </div>
+    </div>
+    <div id="btn-nav">
+        <a href="/lastTopic?page={{.PrevPage}}">Page precedente</a>
+        <p>{{.Page}}</p>
+        <a href="/lastTopic?page={{.NextPage}}">Page suivante</a>
+    </div>
+    </div>
+</body>
+{{end}}

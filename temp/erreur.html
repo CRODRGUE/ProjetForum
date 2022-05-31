@@ -1,0 +1,32 @@
+{{define "erreur"}}
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Author" content="Cyril Rodrigues" />
+        <script src="https://kit.fontawesome.com/74fed0e2b5.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./static/css/erreur.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style_global.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="./static/img/LogoOngletpng.png">
+        <title>LibexForum</title>
+    </head>
+
+    <body>
+        <div id="container">
+           
+            <div id="center"> 
+                    <img id="Logo" src="./static/img/logob2.png" alt="Logo Libex">
+                    <p>Oupss...</p>                   
+                    <p>{{.Message}}</p>
+                    <button onclick="Back()">Retour</button>
+            </div>
+       
+        </div>
+        <script type="text/javascript" src="./static/js/erreur.js"></script>    
+    </body>
+
+</html>
+{{end}}

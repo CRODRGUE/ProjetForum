@@ -1,0 +1,134 @@
+{{define "topic"}}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/74fed0e2b5.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/topic.css" rel="stylesheet">
+    <title>LibexForum</title>
+</head>
+
+<body>
+    <div id="menu">
+        <div id="menu-btn">
+            <a href="/accueil">Accueil</a>
+            <a href="/accueil">Categories</a>
+            <a href="/lastTopic?page=0">Topic</a>
+            <a href="/createTopic">New Topic</a>
+        </div>
+        <img id="menu-logo" src="/static/img/Logo.png" alt="Logo du forum !">
+        <a href="/profil/{{.Id_ses}}" style="text-decoration: none; color:#fff;">
+            <div id="menu-profil">
+                <p>Pseudo...</p>
+                <img src="/static/img/profile.png" alt="image de profil de l'utilisateur">
+            </div>
+        </a>
+    </div>
+
+    <div id="content-one">
+        <div id="block-info">
+            <div class="bg">
+                <div id="info">
+                    <img src="{{.DataTopic.Picture}}" alt="">
+                    <p>{{.DataTopic.Title}}</p>
+                    <p>{{.DataTopic.Description}}</p>
+                </div>
+                <div id="subjet">
+                    <p>Sujet du topic :</p>
+                    <p>{{.DataTopic.Subjet}}</p>
+                    <p>Categorie :</p>
+                    <div id="subjet-cnt">
+                        <div class="subjet-tag">
+                            <p>{{.DataTopic.Category}}</p>
+                        </div>
+                    </div>
+                    <p>Nombre de message :</p>
+                    <p>{{.DataTopic.NbrMessage}}</p>
+                    <p>Date de creation & createur du topic :</p>
+                    <p>{{.DataTopic.Start_date}}  {{.DataTopic.Pseudo}}</p>
+                </div>
+            </div>
+
+        </div>
+        {{$Id_Topic := .DataTopic.Id}}
+        {{$Id_User := .Id_user}}
+        <div id="block-message">
+            <div class="bg">
+                <div id="converssation">
+                    {{if not .LikeMessages}}
+                        <p id="messageErr">Il y a pas de post</p>
+                    {{else}}
+                    {{range .LikeMessages}}
+                    {{if eq $Id_User .Message.Id_user_message}}
+                    <div class="message-hote Message">
+                        <div>
+                            <div class="message-info">
+                                <div>
+                                    <img src="./static/img/partager-hote.png" alt="">
+                                    {{if .Check}}
+                                    <a href="/like?m={{.Message.Id_message}}&u={{$Id_User}}&t={{$Id_Topic}}"><img
+                                            src="./static/img/love-hote-like.png" alt="Button unlike"></a>
+                                    {{else}}
+                                    <a href="/like?m={{.Message.Id_message}}&u={{$Id_User}}&t={{$Id_Topic}}"><img
+                                            src="./static/img/love-hote-unlike.png" alt="Button like"></a>
+                                    {{end}}
+                                </div>
+                                <p class="Pseudo">{{.Message.Pseudo}}</p>
+                            </div>
+                            <p>{{.Message.Message}}</p>
+                        </div>
+                        <p>{{.Message.Date_message}}</p>
+                    </div>
+                    {{else}}
+                    <div class="message-user Message">
+                        <div>
+                            <div class="message-info">
+                                <p class="Pseudo">{{.Message.Pseudo}}</p>
+                                <div>
+                                    <img src="./static/img/partager-user.png" alt="">
+                                    {{if .Check}}
+                                    <a href="/like?m={{.Message.Id_message}}&u={{$Id_User}}&t={{$Id_Topic}}"><img
+                                            src="./static/img/love-user-like.png" alt="bouton pour liker le post"></a>
+                                    {{else}}
+                                    <a href="/like?m={{.Message.Id_message}}&u={{$Id_User}}&t={{$Id_Topic}}"><img
+                                            src="./static/img/love-user-unlike.png" alt="boutton pour dislike le post"></a>
+                                    {{end}}
+                                </div>
+                            </div>
+                            <p>{{.Message.Message}}</p>
+                        </div>
+                        <p>{{.Message.Date_message}}</p>
+                    </div>
+                    {{end}}
+                    {{end}}
+                    {{end}}
+
+
+                    <div id="message-input">
+                        <form id="from-message" action="/send/?topic={{.DataTopic.Id}}" method="post">
+                            <textarea rows="5" cols="64" name="new_message" required
+                                id="message">écris ton message ici...</textarea>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="btn-nav">
+                {{$Page_Topic := .Page}}
+                <a href="/topic?page={{.PrevPage}}&topic={{.DataTopic.Id}}">Page precedente</a>
+                <p>{{.Page}}</p>
+                {{if not .LikeMessages}}
+                <a href="" style=" cursor: not-allowed;">Page suivante</a>
+                {{else}}
+                <a href="/topic?page={{.NextPage}}&topic={{.DataTopic.Id}}">Page suivante</a>
+                {{end}}
+            </div>
+        </div> 
+</body>
+
+</html>
+
+{{end}}

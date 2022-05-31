@@ -1,0 +1,104 @@
+{{define "eprofil"}}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/editProfil.css">
+    <title>LibexForum</title>
+</head>
+
+<body>
+    <div>
+        <div id="content-one">
+            <form action="/upProfil?id={{.Id}}">
+
+                <div class="step active-step">
+                    <div class="block-left">
+                        <p>Modification du profil</p>
+                        <div id="form-one">
+                            <label for="pseudo">Pseudo :</label>
+                            <input type="text" name="user_pseudo" id="pseudo" value="{{.Pseudo}}">
+                            <label for="name">Prenom :</label>
+                            <input type="text" name="user_firstname" id="name" value="{{.FirstName}}">
+                            <label for="lastname">Nom :</label>
+                            <input type="text" name="user_lastname" id="lastname" value="{{.LastName}}">
+                            <label for="date">Date d'anniverssaire :</label>
+                            <input type="date" name="user_date" id="date" value="{{.Date}}">
+                            <label for="description">Description :</label>
+                            <textarea id="user_description" rows="5" cols="64" name="user_description">{{.Description}}</textarea>
+
+                        </div>
+                    </div>
+
+                    <div class="center"></div>
+
+                    <div class="block-right">
+                        <p>Image de profile :</p>
+                        <div id="form-tow">
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_1" name="user_picture" value="1">
+                                <label for="badge_1" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_2" name="user_picture" value="2">
+                                <label for="badge_2" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_3" name="user_picture" value="3">
+                                <label for="badge_3" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_4" name="user_picture" value="4">
+                                <label for="badge_4" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="badge" id="badge_5" name="user_picture" value="5">
+                                <label for="badge_5" class="side-label"><img src="/static/img/profile.png" alt=""></label>
+                            </div>
+                        </div>
+                        <p class="next btn">Suivant</p>
+                    </div>
+                </div>
+
+                <div  class="step">
+
+                    <div class="block-left">
+                        <p>Modification du profil</p>
+                        <div id="form-one">
+                            <label for="pseudo">Email :</label>
+                            <input type="text" name="user_email" id="pseudo" value="{{.Email}}">
+                            <label for="pseudo">Confirmation email :</label>
+                            <input type="text" name="user_email_c" id="pseudo" value="{{.Email}}">
+                            <label for="name">Mot de passe :</label>
+                            <input type="password" name="user_password" id="pseudo">
+                            <label for="name">Confirmation du nouveau mot de passe :</label>
+                            <input type="password" name="user_password_c" id="pseudo">
+                            <p class="prev btn">Retour</p>
+                            <button type="submit" onclick="test()">Valider !</button>
+                        </div>
+                    </div>
+
+                    <div class="center"></div>
+
+                    <div class="block-right" style="text-align: center;">
+                        <p>Une petite citation</p>
+                        <p>Ceux qui ont beaucoup à espérer et rien à perdre seront toujours dangereux.</p>
+                    </div>
+                    <input type="text" name="user" value="{{.Id}}" style="display: none;">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="/static/js/test.js"></script>   
+    <script type="text/javascript" src="/static/js/switch.js"></script>  
+</body>
+
+</html>
+{{end}}

@@ -1,0 +1,13 @@
+<!-- {{if .}} <!-- si remplie -->
+    <p> si .</p>
+    <img src="./static/science-fiction.png" alt="">
+    {{else}} <!-- si vide -->
+    <p>sinon</p>
+    <img src="./static/atlas.png" alt="">
+    {{end}} -->
+
+    &t={{$Id_Topic}}
+
+
+
+    	err := db.QueryRow("SELECT `lastname`, `firstname`, `email`, `password`, `pseudo`, `description`, `profile_picture` FROM `users` WHERE id_user = ?", id).Scan(&user.LastName, &user.FirstName, &user.Email, &user.Password, &user.Pseudo, &user.Description, &user.ProfilePicture)

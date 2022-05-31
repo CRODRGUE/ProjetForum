@@ -1,0 +1,55 @@
+{{define "accueil"}}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/accueil.css" rel="stylesheet">
+    <title>LibexForum</title>
+</head>
+<body>
+    <div>
+        <div id="menu">
+            <div id="menu-btn">
+                <a href="/accueil">Accueil</a>
+                <a href="/accueil">Categories</a>
+                <a href="/lastTopic?page=0">Topic</a>
+                <a href="/createTopic">New Topic</a>
+            </div>
+            <img id="menu-logo" src="/static/img/Logo.png" alt="Logo du forum !">
+            <a href="/profil/{{.Id_ses}}" style="text-decoration: none; color:#fff;">
+                <div id="menu-profil">
+                    <!-- <p>Pseudo...</p> -->
+                    <img src="/static/img/profile.png" alt="image de profil de l'utilisateur">
+                </div>
+            </a>
+        </div>
+
+        <div id="content-one">
+            <div id="block-quote">
+                <div class="quote">
+                    <p>"Pour l'écrivain, la littérature est cette parole qui dit jusqu'à la mort : je ne commencerai pas à vivre avant de savoir quel est le sens de la vie."</p>
+                    <p>By Roland Barthes</p>
+                </div>
+            </div>
+
+            <div id="block-categories">
+                {{range .Cat}}
+                <div class="category">
+                    <div>
+                        <img src="{{.Picto}}" alt="">
+                        <div>
+                            <p>{{.Category}}</p>
+                            <p>{{.SubCategory}}</p>
+                        </div>
+                    </div>
+                    <a href="/categorie/{{.Path}}?page=0">Explorer</a>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{{end}}

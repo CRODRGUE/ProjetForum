@@ -1,0 +1,49 @@
+{{define "login"}}
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Author" content="Cyril Rodrigues" />
+        <script src="https://kit.fontawesome.com/74fed0e2b5.js" crossorigin="anonymous"></script>
+        <link href="./static/css/login.css" rel="stylesheet">
+        <link rel="icon" type="image/png" sizes="16x16" href="./static/img/LogoOngletpng.png">
+        <title>LibexForum</title>
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="center"> 
+                <div id="quote">
+                    <img id="Logo" src="./static/img/LogoW.png" alt="Logo Libex">
+                    <p>“Il n’y a pas d’heure pour la littérature ; la littérature n’est jamais à l’heure.”</p>
+                    <p id="crf">By BERNARD-HENRI LÉVY</p>
+                </div>
+                
+                <div class="panel">
+                    <img id="Logo" src="./static/img/logob2.png" alt="Logo Libex">
+                    <div id="panellogin">  
+                        <p>Connexion</p>
+                        <form action="/log" method="get">
+                            <label for="email">E-mail :</label>
+                            <input type="email" name="user_mail" id="email" required>
+                            <label for="mdp">Mot de passe :</label>
+                            <input type="password" name="user_password" id="mdp" required>
+                            <button type="submit" id="btn">Se connecter</button>
+                        </form>
+
+                        <div id="connect">
+                        </div>
+                    </div>
+                    <a href="/register">Créer un compte</a>
+                    <a>Mot de passe oublié</a> 
+                </div>
+            </div>
+
+             
+    </body>
+
+</html>
+{{end}}
